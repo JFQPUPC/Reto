@@ -126,3 +126,31 @@ planForm.addEventListener("submit", (e) => {
 // Inicializar aplicación
 renderCalendar(currentDate);
 updateCropList();
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evitar el envío del formulario
+
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Validaciones simples
+  if (username === '' || password === '') {
+      showErrorMessage('Por favor, complete todos los campos.');
+      return;
+  }
+
+  // Simular autenticación
+  if (username === 'admin' && password === '1234') {
+      alert('Inicio de sesión exitoso');
+      // Redireccionar a la página principal
+      window.location.href = 'dashboard.html';
+  } else {
+      showErrorMessage('Usuario o contraseña inválidos.');
+  }
+});
+
+function showErrorMessage(message) {
+  const errorMessage = document.getElementById('error-message');
+  errorMessage.textContent = message;
+  errorMessage.style.display = 'block';
+}
