@@ -157,3 +157,39 @@ body {
     margin-top: 2rem;
   }
   
+  .login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
+    width: 350px;
+    text-align: center;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #6B8E23;
+}
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container button {
+    background-color: #6B8E23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 100%;
+}
+.login-container button:hover {
+    background-color: #556B2F;
+}
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
