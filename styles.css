@@ -1,195 +1,87 @@
-/* styles.css */
-
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  /* Header */
-  header {
-    background-color: #28a745;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  
-  /* Main Content */
-  main {
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  
-  /* Sections */
-  section {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  section h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #28a745;
-  }
-  
-  /* Calendar Section */
-  #calendar-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  #calendar-controls button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #calendar-controls button:hover {
-    background-color: #218838;
-  }
-  
-  #calendar {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  
-  #calendar th,
-  #calendar td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    width: 14.2%;
-  }
-  
-  #calendar th {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  #calendar td:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
-  }
-  
-  /* Crops Section */
-  #crops-list {
-    margin-top: 1rem;
-  }
-  
-  #crop-items {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #crop-items li {
-    background: #e9ecef;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    border-radius: 4px;
-  }
-  
-  #add-crop-btn {
-    display: inline-block;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  
-  #add-crop-btn:hover {
-    background-color: #218838;
-  }
-  
-  /* Plan Section */
-  #plan-form label {
-    display: block;
-    margin: 0.5rem 0 0.25rem;
-    font-weight: bold;
-  }
-  
-  #plan-form input,
-  #plan-form select,
-  #plan-form button {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  #plan-form button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #plan-form button:hover {
-    background-color: #218838;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-    margin-top: 2rem;
-  }
-  
-  .login-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px 30px;
-    width: 350px;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #0a92f7, #0a92f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-.login-container h2 {
-    margin-bottom: 20px;
-    color: #6B8E23;
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  display: flex;
+  position: relative;
 }
-.login-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  width: 50%;
+  padding: 50px;
 }
-.login-container button {
-    background-color: #6B8E23;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    width: 100%;
+.sign-in-container {
+  left: 0;
+  z-index: 2;
 }
-.login-container button:hover {
-    background-color: #556B2F;
+.sign-up-container {
+  left: 0;
+  z-index: 1;
+  opacity: 0;
 }
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    display: none;
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+.overlay {
+  background: linear-gradient(to right, #0a92f7, #0a92f7);
+  color: white;
+  position: absolute;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+}
+.overlay-left {
+  transform: translateX(-20%);
+}
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+button {
+  background-color: #0a92f7;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 20px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #005bb5;
 }
